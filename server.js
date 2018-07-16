@@ -3,7 +3,7 @@ var app = express();
 var fs = require('fs')
 var bodyParser = require('body-parser');
 
-var stringifyFile
+var stringifyFile = '';
 
 app.use(bodyParser.json());
 
