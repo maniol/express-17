@@ -1,18 +1,22 @@
 var express = require('express');
 var app = express();
+app.use(express.static('assets'));
 
-app.use('/store', function(req, res, next){
-	console.log('Jestem pośrednikiem przy żądaniu do /store');
-	next();
-});
+app.set('view engine', 'pug');
+app.set('views','./views');
 
 app.get('/', function (req, res) {
 	res.send('Hello world!');
 });
 
-app.get('/store', function (req, res) {
-	res.send('To jest sklep');
+app.get('/login', function (req, res) {
+	res.render('login.pug');
 });
+
+app.get('/loggedin', function (req, res) {
+	res.render('loggedin.pug');
+});
+
 
 app.listen(3000);
 app.use(function (req, res, next) {
